@@ -1,0 +1,68 @@
+==================================================
+STEP-BY-STEP GUIDE: RUNNING THE DKN SYSTEM
+==================================================
+
+Follow these steps in exact order to set up and run the application.
+
+--- PHASE 1: PREPARATION ---
+
+STEP 1: Install Required Software
+   - Node.js (Version 16 or higher)
+   - MongoDB Community Server (Must be running on port 27017)
+   - MongoDB Compass (for viewing database)
+
+STEP 2: Verify MongoDB is Running
+   - Open your services or terminal and ensure the MongoDB service is active.
+   - Default URL should be: mongodb://localhost:27017
+
+--- PHASE 2: INSTALLATION ---
+
+STEP 3: Install Server Dependencies
+   1. Open a terminal.
+   2. Navigate to the server folder:
+      cd "g:\Projects\Anuruddha sir\server"
+   3. Run the install command:
+      npm install
+   4. (Optional) Create a .env file if you need custom settings, otherwise defaults work.
+
+STEP 4: Install Client Dependencies
+   1. Open a NEW terminal (keep the first one open).
+   2. Navigate to the client folder:
+      cd "g:\Projects\Anuruddha sir\client"
+   3. Run the install command:
+      npm install
+
+--- PHASE 3: LAUNCHING THE APP ---
+
+STEP 5: Start the Backend Server
+   1. Go back to your SERVER terminal.
+   2. Run the command:
+      npm run dev
+   3. Wait until you see: "✅ MongoDB Connected" in the terminal.
+   4. Keep this terminal OPEN.
+
+STEP 6: Start the Frontend Client
+   1. Go to your CLIENT terminal.
+   2. Run the command:
+      npm run dev
+   3. You will see a Local URL (usually http://localhost:5173).
+   4. Ctrl+Click the link or open it in your browser.
+
+--- PHASE 4: USING THE SYSTEM ---
+
+STEP 7: Log In
+   1. The browser should show the Login screen.
+   2. Use the default Super Admin credentials:
+      - Email:    admin@knowledgeshare.org
+      - Password: 123456
+   3. Click Login. You should be redirected to the Dashboard.
+
+--- PHASE 5: DATABASE 
+
+STEP 8: Connect with MongoDB Compass
+   1. Open the "MongoDB Compass" application.
+   2. Find the "URI" or "Connection String" box.
+   3. Enter: mongodb://localhost:27017
+   4. Click "Connect".
+   5. In the left sidebar, find the database named "knowledge-base-cms".
+   6. Click on it to see collections like 'users', 'documents', etc.
