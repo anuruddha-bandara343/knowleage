@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { SERVER_URL } from '../services/api';
 
 const PDFViewer = ({ fileUrl, fileName, onClose, docId, docStatus, isReviewer, onApprove, onReject }) => {
     const [zoom, setZoom] = useState(100);
@@ -17,7 +18,7 @@ const PDFViewer = ({ fileUrl, fileName, onClose, docId, docStatus, isReviewer, o
 
     // Construct full URL for local files
     const fullUrl = fileUrl.startsWith('/uploads/')
-        ? `http://localhost:3000${fileUrl}`
+        ? `${SERVER_URL}${fileUrl}`
         : fileUrl;
 
     return (

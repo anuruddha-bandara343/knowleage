@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { SERVER_URL } from '../services/api';
 
 const PDFPreview = ({ fileUrl }) => {
     const [isFullscreen, setIsFullscreen] = useState(false);
@@ -10,7 +11,7 @@ const PDFPreview = ({ fileUrl }) => {
     const ext = fileUrl.split('.').pop()?.toLowerCase();
 
     // Construct full URL
-    const fullUrl = fileUrl.startsWith('/') ? `http://localhost:3000${fileUrl}` : fileUrl;
+    const fullUrl = fileUrl.startsWith('/') ? `${SERVER_URL}${fileUrl}` : fileUrl;
 
     const toggleFullscreen = () => setIsFullscreen(!isFullscreen);
 

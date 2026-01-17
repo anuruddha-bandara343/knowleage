@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { authAPI, documentAPI } from '../services/api';
+import { authAPI, documentAPI, SERVER_URL } from '../services/api';
 
 const Profile = ({ user, onLogout, onRefresh }) => {
     const [stats, setStats] = useState({ uploads: 0, approved: 0, pending: 0 });
@@ -91,7 +91,7 @@ const Profile = ({ user, onLogout, onRefresh }) => {
         return name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
     };
 
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+    const API_URL = SERVER_URL;
 
     // Helper to get full image URL (handles both relative and absolute)
     const getProfileImageUrl = (path) => {

@@ -5,7 +5,7 @@ import Leaderboard from './components/Leaderboard';
 import Profile from './components/Profile';
 import Login from './components/Login';
 import ChatBot from './components/ChatBot';
-import { authAPI } from './services/api';
+import { authAPI, SERVER_URL } from './services/api';
 import './index.css';
 
 function App() {
@@ -251,7 +251,7 @@ function App() {
 
                 <div className="avatar-wrapper" onClick={() => setActiveTab('profile')} title="Go to Profile">
                   {user.profileImage ? (
-                    <img src={`http://localhost:3000${user.profileImage}`} alt={user.name} />
+                    <img src={`${SERVER_URL}${user.profileImage}`} alt={user.name} />
                   ) : (
                     <div className="avatar-initials">{(user.name || 'U').charAt(0)}</div>
                   )}

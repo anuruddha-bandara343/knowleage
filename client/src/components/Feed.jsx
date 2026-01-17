@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { documentAPI, reviewAPI } from '../services/api';
+import { documentAPI, reviewAPI, SERVER_URL } from '../services/api';
 import RatingComponent from './RatingComponent';
 import CommentSection from './CommentSection';
 import PDFViewer from './PDFViewer';
@@ -330,7 +330,7 @@ const Feed = ({ user, searchQuery }) => {
                                                     }}
                                                 >
                                                     <img
-                                                        src={`http://localhost:3000${fileUrl}`}
+                                                        src={`${SERVER_URL}${fileUrl}`}
                                                         alt={`${doc.title} ${idx + 1}`}
                                                         className="fb-preview-image"
                                                     />
@@ -348,7 +348,7 @@ const Feed = ({ user, searchQuery }) => {
                                                     }}
                                                 >
                                                     <iframe
-                                                        src={`http://localhost:3000${fileUrl}#toolbar=0&navpanes=0&scrollbar=0`}
+                                                        src={`${SERVER_URL}${fileUrl}#toolbar=0&navpanes=0&scrollbar=0`}
                                                         className="fb-pdf-iframe"
                                                         title={`${doc.title} ${idx + 1}`}
                                                     />
@@ -361,7 +361,7 @@ const Feed = ({ user, searchQuery }) => {
                                     ) : (
                                         doc.versions[doc.versions.length - 1].fileUrl.toLowerCase().match(/\.(jpg|jpeg|png|gif|webp)$/) ? (
                                             <img
-                                                src={`http://localhost:3000${doc.versions[doc.versions.length - 1].fileUrl}`}
+                                                src={`${SERVER_URL}${doc.versions[doc.versions.length - 1].fileUrl}`}
                                                 alt={doc.title}
                                                 className="fb-preview-image"
                                                 onClick={() => {
@@ -378,7 +378,7 @@ const Feed = ({ user, searchQuery }) => {
                                                 }}
                                             >
                                                 <iframe
-                                                    src={`http://localhost:3000${doc.versions[doc.versions.length - 1].fileUrl}#toolbar=0&navpanes=0&scrollbar=0`}
+                                                    src={`${SERVER_URL}${doc.versions[doc.versions.length - 1].fileUrl}#toolbar=0&navpanes=0&scrollbar=0`}
                                                     className="fb-pdf-iframe"
                                                     title={doc.title}
                                                 />
@@ -427,7 +427,7 @@ const Feed = ({ user, searchQuery }) => {
                                 {doc.versions?.length > 0 && doc.versions[doc.versions.length - 1]?.fileUrl &&
                                     doc.versions[doc.versions.length - 1].fileUrl.startsWith('/uploads/') && (
                                         <a
-                                            href={`http://localhost:3000${doc.versions[doc.versions.length - 1].fileUrl}`}
+                                            href={`${SERVER_URL}${doc.versions[doc.versions.length - 1].fileUrl}`}
                                             download
                                             className="fb-action-btn"
                                         >

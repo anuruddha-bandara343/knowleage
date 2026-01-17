@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { getRoleLabel, getRoleColor } from '../../utils/roleUtils';
+import { SERVER_URL } from '../../services/api';
 
 /**
  * Navbar Component - Main navigation header
@@ -101,7 +102,7 @@ const Navbar = ({
                                 title="Go to Profile"
                             >
                                 {user?.profileImage ? (
-                                    <img src={`http://localhost:3000${user.profileImage}`} alt={user.name} />
+                                    <img src={`${SERVER_URL}${user.profileImage}`} alt={user.name} />
                                 ) : (
                                     <div className="avatar-initials">
                                         {(user?.name || 'U').charAt(0)}
